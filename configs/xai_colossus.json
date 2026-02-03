@@ -1,0 +1,11 @@
+{
+  "chip_name": "xAI Colossus Cluster (H100 × 100,000)",
+  "architecture": "Multi-Hopper",
+  "release_year": 2024,
+  "total_power_mw": 70,
+  "cooling_load_mw": 150,
+  "pue_target": 1.1,
+  "failure_mode": "Cascade Thermal Runaway",
+  "mtbf_hours_current": 8760,
+  "notes": "At scale, even 0.1% failure rate = 100 GPU failures/year from thermal events"
+}

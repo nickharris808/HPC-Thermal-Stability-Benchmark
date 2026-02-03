@@ -1,0 +1,13 @@
+{
+  "chip_name": "NVIDIA B200 (Blackwell)",
+  "architecture": "Blackwell",
+  "release_year": 2024,
+  "tdp_watts": 1000,
+  "die_area_mm2": 750,
+  "die_area_cm2": 7.5,
+  "peak_heat_flux_w_cm2": 133,
+  "hotspot_multiplier": 3.0,
+  "hotspot_heat_flux_w_cm2": 400,
+  "cooling_method": "Direct Liquid Immersion (Required)",
+  "notes": "CRITICAL: Hotspot flux approaches CHF limit for HFE fluids"
+}

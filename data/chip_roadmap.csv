@@ -1,0 +1,7 @@
+year,chip,architecture,tdp_watts,die_area_cm2,avg_flux_w_cm2,hotspot_flux_w_cm2,cooling_status
+2020,A100,Ampere,400,8.26,48,144,SAFE
+2022,H100,Hopper,700,8.14,86,215,MARGINAL
+2024,B200,Blackwell,1000,7.50,133,400,CRITICAL
+2025,B300,Blackwell+,1200,7.00,171,600,FAILURE
+2026,Rubin,Rubin,1400,7.00,200,800,FAILURE
+2027,Rubin+,Rubin+,1600,6.50,246,1000,FAILURE

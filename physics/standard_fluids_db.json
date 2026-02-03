@@ -1,0 +1,139 @@
+{
+  "_metadata": {
+    "description": "Thermophysical properties of standard data center cooling fluids",
+    "source": "NIST Chemistry WebBook, Manufacturer Datasheets, Published Literature",
+    "units": {
+      "density": "kg/m³",
+      "surface_tension": "N/m",
+      "enthalpy_vaporization": "J/kg",
+      "viscosity": "Pa·s",
+      "thermal_conductivity": "W/(m·K)",
+      "specific_heat": "J/(kg·K)",
+      "boiling_point": "°C at 1 atm"
+    },
+    "last_updated": "2026-01-31"
+  },
+
+  "water": {
+    "name": "Deionized Water",
+    "category": "Aqueous",
+    "density_l": 958.4,
+    "density_v": 0.598,
+    "surface_tension": 0.0589,
+    "enthalpy_vaporization": 2257000,
+    "viscosity": 0.000282,
+    "thermal_conductivity": 0.68,
+    "specific_heat": 4186,
+    "boiling_point": 100,
+    "dielectric_compatible": false,
+    "notes": "Best thermal properties but conductive - requires indirect contact"
+  },
+
+  "novec_7100": {
+    "name": "3M Novec 7100 (Methoxy-nonafluorobutane)",
+    "category": "Hydrofluoroether (HFE)",
+    "cas_number": "163702-07-6",
+    "density_l": 1510,
+    "density_v": 9.9,
+    "surface_tension": 0.0136,
+    "enthalpy_vaporization": 112000,
+    "viscosity": 0.00058,
+    "thermal_conductivity": 0.069,
+    "specific_heat": 1183,
+    "boiling_point": 61,
+    "dielectric_compatible": true,
+    "notes": "Common immersion cooling fluid - low CHF due to low surface tension"
+  },
+
+  "novec_649": {
+    "name": "3M Novec 649 (Perfluoro-2-methyl-3-pentanone)",
+    "category": "Fluoroketone (FK)",
+    "cas_number": "756-13-8",
+    "density_l": 1600,
+    "density_v": 13.4,
+    "surface_tension": 0.0108,
+    "enthalpy_vaporization": 88000,
+    "viscosity": 0.00064,
+    "thermal_conductivity": 0.059,
+    "specific_heat": 1103,
+    "boiling_point": 49,
+    "dielectric_compatible": true,
+    "notes": "Ultra-low GWP but very low latent heat limits CHF"
+  },
+
+  "fc_72": {
+    "name": "3M Fluorinert FC-72 (Perfluorohexane)",
+    "category": "Perfluorocarbon (PFC)",
+    "cas_number": "355-42-0",
+    "density_l": 1680,
+    "density_v": 13.3,
+    "surface_tension": 0.010,
+    "enthalpy_vaporization": 88000,
+    "viscosity": 0.00064,
+    "thermal_conductivity": 0.057,
+    "specific_heat": 1100,
+    "boiling_point": 56,
+    "dielectric_compatible": true,
+    "notes": "Legacy fluid - high GWP (9300), being phased out"
+  },
+
+  "hfo_1234ze": {
+    "name": "HFO-1234ze(E) (trans-1,3,3,3-Tetrafluoropropene)",
+    "category": "Hydrofluoroolefin (HFO)",
+    "cas_number": "29118-24-9",
+    "density_l": 1163,
+    "density_v": 37.9,
+    "surface_tension": 0.0082,
+    "enthalpy_vaporization": 163000,
+    "viscosity": 0.000195,
+    "thermal_conductivity": 0.075,
+    "specific_heat": 1386,
+    "boiling_point": -19,
+    "dielectric_compatible": true,
+    "notes": "Low GWP refrigerant - requires pressurization for liquid phase"
+  },
+
+  "bitcool_bc888": {
+    "name": "BitCool BC-888 (Synthetic Hydrocarbon)",
+    "category": "Mineral Oil Derivative",
+    "density_l": 770,
+    "density_v": 0.5,
+    "surface_tension": 0.025,
+    "enthalpy_vaporization": 250000,
+    "viscosity": 0.0045,
+    "thermal_conductivity": 0.13,
+    "specific_heat": 2100,
+    "boiling_point": 280,
+    "dielectric_compatible": true,
+    "notes": "Single-phase only - no boiling heat transfer, limited by sensible heat"
+  },
+
+  "engineered_fluid_50": {
+    "name": "EC-50 (Ethylene Glycol 50%)",
+    "category": "Aqueous Glycol",
+    "density_l": 1070,
+    "density_v": 0.7,
+    "surface_tension": 0.048,
+    "enthalpy_vaporization": 1800000,
+    "viscosity": 0.0034,
+    "thermal_conductivity": 0.42,
+    "specific_heat": 3400,
+    "boiling_point": 107,
+    "dielectric_compatible": false,
+    "notes": "Cold plate loops only - conductive, no direct contact"
+  },
+
+  "_genesis_proprietary": {
+    "name": "GENESIS TF-PENTYLAMINE BINARY (Patent 3)",
+    "category": "🔒 PROPRIETARY - Marangoni-Active Binary",
+    "density_l": "🔒 REDACTED",
+    "density_v": "🔒 REDACTED",
+    "surface_tension": "🔒 REDACTED",
+    "delta_sigma": "🔒 7.0 mN/m (Self-Pumping Gradient)",
+    "enthalpy_vaporization": "🔒 REDACTED",
+    "marangoni_number": "🔒 Ma > 80,000",
+    "chf_verified": "1650 W/cm² (5.5× Enhancement)",
+    "dielectric_compatible": true,
+    "notes": "Contact genesis-ip@example.com for Data Room access"
+  }
+}
