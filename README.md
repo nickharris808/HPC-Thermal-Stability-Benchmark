@@ -9,10 +9,10 @@
 ---
 
 <p align="center">
-  <img src="figures/thermal_cliff_comparison.png" alt="The Thermal Cliff" width="900"/>
+  <img src="assets/marangoni_flow_v2.gif" alt="Self-Pumping Thermal Stability" width="900"/>
 </p>
 
-<p align="center"><em>Figure 1: Critical Heat Flux limits of commercial cooling fluids vs. AI accelerator power density roadmap.</em></p>
+<p align="center"><em>Figure 1: High-fidelity CFD simulation of Genesis Marangoni fluid stabilizing a 1000 W/cm² heat load via self-pumping (no mechanical pumps).</em></p>
 
 ---
 
@@ -87,10 +87,10 @@ These hotspots are where thermal failure initiates.
 ### The Boiling Curve
 
 <p align="center">
-  <img src="figures/boiling_curve_comparison.png" alt="Boiling Curve Comparison" width="800"/>
+  <img src="assets/FIG_1_marangoni_mechanism.png" alt="Marangoni Mechanism vs Boiling" width="800"/>
 </p>
 
-<p align="center"><em>Figure 2: Heat flux vs. surface superheat for different cooling fluids. The peak represents CHF.</em></p>
+<p align="center"><em>Figure 2: Mechanism of Action. While standard fluids follow the Zuber limit (A), Marangoni fluids (B) use surface tension gradients to pump fresh liquid to the hotspot, bypassing the boiling crisis.</em></p>
 
 The boiling curve describes how heat is transferred from a hot surface to a boiling liquid:
 
