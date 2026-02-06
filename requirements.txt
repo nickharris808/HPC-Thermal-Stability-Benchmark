@@ -1,6 +1,19 @@
 # HPC Thermal Stability Benchmark
-# Required dependencies
+# Required Python Dependencies
+#
+# Install with: pip install -r requirements.txt
+# Tested with Python 3.9+
 
-numpy>=1.21.0
-matplotlib>=3.5.0
-scipy>=1.7.0
+# Core Scientific Computing
+numpy>=1.21.0                  # Array operations, numerical computing
+scipy>=1.7.0                   # Scientific algorithms, interpolation
+
+# Data Handling
+pandas>=1.3.0                  # DataFrame operations, CSV/JSON I/O
+
+# Visualization
+matplotlib>=3.5.0              # Publication-quality figures
+
+# Optional: For extended analysis
+# seaborn>=0.11.0              # Statistical visualization (optional)
+# jupyter>=1.0.0               # Interactive notebooks (optional)

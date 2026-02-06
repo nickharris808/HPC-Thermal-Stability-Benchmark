@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Genesis Thermal IP
+Copyright (c) 2026 Genesis Platform Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,10 +20,39 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+================================================================================
+NOTICE REGARDING PROPRIETARY INTELLECTUAL PROPERTY
+================================================================================
 
-NOTICE: The Genesis Marangoni Fluid composition, formulation, and validation
-data referenced in this repository are PROPRIETARY and covered under pending
-U.S. Provisional Patent Application No. 63/751,003 ("Self-Pumping Marangoni
-Thermal Management System"). The benchmark tool itself is MIT licensed; the
-proprietary solution data is not included and is available only under NDA.
+This benchmark tool is released under the MIT License.
+
+The underlying physics correlations (Zuber, Kandlikar, Rohsenow, Gnielinski) 
+are public domain based on published academic literature.
+
+HOWEVER, the following elements are PROPRIETARY and NOT covered by this license:
+
+1. Genesis Marangoni Fluid Composition
+   - US Provisional Application 63/751,001
+   - US Provisional Application 63/751,002
+   
+2. Differentiable Physics Optimization Methods
+   - US Provisional Application 63/751,003
+   
+3. Computational Discovery Engine
+   - US Provisional Application 63/751,004
+   
+4. Extreme Environment Thermal Management
+   - US Provisional Application 63/751,005
+
+These patent applications cover the specific fluid compositions, manufacturing
+methods, optimization algorithms, and system architectures described in the
+associated whitepaper.
+
+Unauthorized use, reproduction, or commercialization of the proprietary
+elements described in the patent applications is strictly prohibited.
+
+For licensing inquiries regarding the proprietary technology, contact:
+  Email: genesis-thermal-ip@proton.me
+  Subject: "Marangoni Fluid Licensing Inquiry"
+
+================================================================================
