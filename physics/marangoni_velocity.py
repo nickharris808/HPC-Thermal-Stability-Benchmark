@@ -303,11 +303,11 @@ NUMERICAL EXAMPLE (GENESIS FLUID):
 Given:
     h = 500 μm = 5×10⁻⁴ m  (channel height)
     μ = 0.00048 Pa·s       (viscosity)
-    dσ/dT = 0.0002 N/m·K   (surface tension gradient)
+    dσ/dT = 0.00012 N/m·K   (surface tension gradient)
     dT/dx = 1000 K/m       (typical hotspot gradient)
 
 Calculation:
-    ū = (5×10⁻⁴) / (2 × 0.00048) × 0.0002 × 1000
+    ū = (5×10⁻⁴) / (2 × 0.00048) × 0.00012 × 1000
     ū = (5×10⁻⁴ / 9.6×10⁻⁴) × 0.2
     ū = 0.52 × 0.2
     ū = 0.104 m/s
@@ -342,12 +342,12 @@ def validate_against_source():
         u_local = (H_CHANNEL * tau) / (2 * MU)
     
     Where:
-        SIGMA_GRAD = 0.0002  N/m·K
+        SIGMA_GRAD = 0.00012  N/m·K
         H_CHANNEL = 0.0005   m
         MU = 0.00048         Pa·s
     
     For dT_dx = 1000 K/m (10°C over 1cm), the result should be:
-        tau = 0.0002 * 1000 = 0.2 Pa
+        tau = 0.00012 * 1000 = 0.12 Pa
         u = (0.0005 * 0.2) / (2 * 0.00048) = 0.104 m/s
     """
     # Test case
@@ -357,7 +357,7 @@ def validate_against_source():
     u_calculated = calculate_marangoni_velocity(dT_dx)
     
     # Expected from source
-    SIGMA_GRAD = 0.0002
+    SIGMA_GRAD = 0.00012
     H_CHANNEL = 0.0005
     MU = 0.00048
     tau = SIGMA_GRAD * abs(dT_dx)
