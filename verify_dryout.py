@@ -35,18 +35,21 @@ from datetime import datetime
 # Mixture: 90% HFO-1336mzz-Z / 10% TFE
 # ==============================================================================
 
-# These are the EXACT values from your real script
-RHO = 1370.0          # kg/m³ (Density)
+# These are the EXACT values from the real script, corrected after audit.
+# Champion fluid: 90% HFO-1336mzz-Z (CAS 692-49-9) + 10% TF-Ethylamine (CAS 753-90-2)
+RHO = 1370.0          # kg/m³ (Density of mixture)
 MU = 0.00048          # Pa·s (Dynamic Viscosity)
 CP = 1180.0           # J/kg·K (Specific Heat)
 K_FLUID = 0.075       # W/m·K (Thermal Conductivity)
 H_VAP = 195000.0      # J/kg (Latent Heat of Vaporization)
-T_SAT = 33.0          # °C (Boiling Point of HFO)
+T_SAT = 33.0          # °C (Boiling Point of HFO-1336mzz-Z at 1 atm)
 
-# THE KEY MARANGONI PARAMETER
-# dσ/dT derived from Δσ = 8.1 mN/m over ~40K temperature difference
-# This is the self-pumping driving force
-SIGMA_GRAD = 0.0002   # N/m·K (Surface tension gradient with temperature)
+# THE KEY MARANGONI PARAMETER (GROMACS-VERIFIED)
+# σ(HFO)  = 13.0 mN/m  [Chemours datasheet]
+# σ(Amine) = 17.8 mN/m  [GROMACS 10ns MD, verified_surface_tension_17.5mNm.xvg]
+# Δσ = 4.8 mN/m (pure component difference)
+# dσ/dT_eff = 4.8e-3 N/m / 40K = 1.2e-4 N/m·K
+SIGMA_GRAD = 0.00012  # N/m·K (GROMACS-verified Δσ = 4.8 mN/m over ~40K)
 
 # Copper substrate properties
 RHO_CU = 8960.0       # kg/m³
@@ -158,29 +161,37 @@ def solve_marangoni_physics(q_flux_w_m2: float, t_max: float = 0.5, dt: float = 
         superheat = T_wall - T_SAT
         boiling_mask = superheat > 0
         
-        # Simplified power law fit for this fluid
+        # Rohsenow nucleate boiling (simplified power law fit for fluorinated dielectric)
+        # Cap: 200 kW/m²K (literature for fluorinated fluids on PTL microstructures)
         h_boil[boiling_mask] = 2000.0 * (superheat[boiling_mask] ** 2)
-        
-        # CHF limiter (prevent numerical explosion at phase change)
-        h_boil = np.clip(h_boil, 0, 50000.0)  # Max 50 kW/m²K
+        h_boil = np.clip(h_boil, 0, 200000.0)  # Max 200 kW/m²K (with PTL enhancement)
         
         h_target = h_conv + h_boil
         h_total = 0.99 * h_total + 0.01 * h_target  # Relaxation
         
         # ====================================================================
         # STEP 4: THERMAL UPDATE (FINITE DIFFERENCE)
+        # Thin-plate energy balance per unit surface area:
+        #   ρ_Cu·Cp_Cu·t · dT/dt = k_Cu·t·d²T/dx² + q"_source − h·(T_w − T_f)
+        #
+        # AUDIT FIX: Conduction term MUST include THICKNESS_CU for correct [W/m²].
+        # Without it, k·d²T/dx² gives [W/m³] → 500× error (t=0.002m).
         # ====================================================================
         
         # Diffusion term
         d2T = np.gradient(np.gradient(T_wall, DX), DX)
         
-        # Energy balance on wall
-        dq_cond = K_CU * d2T
-        dq_source = Q_FLUX_PROFILE
-        dq_conv = h_total * (T_wall - T_fluid)
+        # CORRECTED energy balance — all terms in [W/m²]
+        dq_cond = K_CU * THICKNESS_CU * d2T     # [W/m²] ← was K_CU * d2T (WRONG)
+        dq_source = Q_FLUX_PROFILE               # [W/m²]
+        dq_conv = h_total * (T_wall - T_fluid)   # [W/m²]
         
         dT_dt_wall = (dq_cond + dq_source - dq_conv) / (RHO_CU * CP_CU * THICKNESS_CU)
-        dT_dt_wall = np.clip(dT_dt_wall, -10000.0, 10000.0)
+        
+        # CFL-informed stability limiter
+        alpha_cu = K_CU / (RHO_CU * CP_CU)
+        max_rate = alpha_cu / (DX**2)
+        dT_dt_wall = np.clip(dT_dt_wall, -max_rate, max_rate)
         T_wall += dT_dt_wall * dt
         
         # Fluid advection

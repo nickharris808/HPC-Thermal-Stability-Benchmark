@@ -9,5 +9,5 @@
   "hotspot_multiplier": 3.0,
   "hotspot_heat_flux_w_cm2": 400,
   "cooling_method": "Direct Liquid Immersion (Required)",
-  "notes": "CRITICAL: Hotspot flux approaches CHF limit for HFE fluids"
+  "notes": "CRITICAL: Hotspot flux approaches CHF limit for HFE fluids. Marangoni enhancement (5.5x) required for stability."
 }

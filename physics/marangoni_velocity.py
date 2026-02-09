@@ -79,7 +79,7 @@ class MarangoniFluidProperties:
     # Surface tension gradient with temperature
     # Derived from Δσ = 8.1 mN/m over ~40K temperature difference
     # This is the CORE PATENT CLAIM
-    d_sigma_dT: float = 0.0002  # N/m·K
+    d_sigma_dT: float = 0.00012  # N/m·K
     
     # Film/channel thickness
     h_film: float = 0.0005  # m (500 μm)

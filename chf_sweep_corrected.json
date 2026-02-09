@@ -1,0 +1,111 @@
+{
+  "sweep": [
+    {
+      "q_flux_W_cm2": 20,
+      "T_max_C": 34.3,
+      "flow_m_s": 0.0704,
+      "h_W_m2K": 1233.0,
+      "boiling_pct": 58.0,
+      "status": "STABLE"
+    },
+    {
+      "q_flux_W_cm2": 50,
+      "T_max_C": 42.6,
+      "flow_m_s": 0.1226,
+      "h_W_m2K": 83212.0,
+      "boiling_pct": 86.0,
+      "status": "STABLE"
+    },
+    {
+      "q_flux_W_cm2": 75,
+      "T_max_C": 50.4,
+      "flow_m_s": 0.1671,
+      "h_W_m2K": 147763.0,
+      "boiling_pct": 94.0,
+      "status": "STABLE"
+    },
+    {
+      "q_flux_W_cm2": 100,
+      "T_max_C": 57.5,
+      "flow_m_s": 0.2067,
+      "h_W_m2K": 159257.0,
+      "boiling_pct": 96.0,
+      "status": "STABLE"
+    },
+    {
+      "q_flux_W_cm2": 133,
+      "T_max_C": 65.4,
+      "flow_m_s": 0.2438,
+      "h_W_m2K": 169430.0,
+      "boiling_pct": 100.0,
+      "status": "STABLE"
+    },
+    {
+      "q_flux_W_cm2": 150,
+      "T_max_C": 72.7,
+      "flow_m_s": 0.2722,
+      "h_W_m2K": 190275.0,
+      "boiling_pct": 100.0,
+      "status": "STABLE"
+    },
+    {
+      "q_flux_W_cm2": 200,
+      "T_max_C": 83.5,
+      "flow_m_s": 0.3332,
+      "h_W_m2K": 193362.0,
+      "boiling_pct": 100.0,
+      "status": "STABLE"
+    },
+    {
+      "q_flux_W_cm2": 250,
+      "T_max_C": 91.4,
+      "flow_m_s": 0.3844,
+      "h_W_m2K": 192465.0,
+      "boiling_pct": 100.0,
+      "status": "MARGINAL"
+    },
+    {
+      "q_flux_W_cm2": 300,
+      "T_max_C": 100.1,
+      "flow_m_s": 0.4335,
+      "h_W_m2K": 197499.0,
+      "boiling_pct": 100.0,
+      "status": "MARGINAL"
+    },
+    {
+      "q_flux_W_cm2": 400,
+      "T_max_C": 112.6,
+      "flow_m_s": 0.5259,
+      "h_W_m2K": 197078.0,
+      "boiling_pct": 100.0,
+      "status": "MARGINAL"
+    },
+    {
+      "q_flux_W_cm2": 500,
+      "T_max_C": 123.5,
+      "flow_m_s": 0.6163,
+      "h_W_m2K": 196553.0,
+      "boiling_pct": 100.0,
+      "status": "MARGINAL"
+    },
+    {
+      "q_flux_W_cm2": 600,
+      "T_max_C": 135.7,
+      "flow_m_s": 0.7028,
+      "h_W_m2K": 200241.0,
+      "boiling_pct": 100.0,
+      "status": "MARGINAL"
+    },
+    {
+      "q_flux_W_cm2": 743,
+      "T_max_C": 149.4,
+      "flow_m_s": 0.8301,
+      "h_W_m2K": 200287.0,
+      "boiling_pct": 100.0,
+      "status": "MARGINAL"
+    }
+  ],
+  "chf_stable": 200,
+  "chf_marginal": 743,
+  "novec_chf": 18.2
+}
