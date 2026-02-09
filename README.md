@@ -910,3 +910,19 @@ The Genesis Marangoni Fluid composition and associated intellectual property are
 **Last Updated:** February 9, 2026  
 **Audit Status:** CORRECTED. Conduction bug fixed (k·t·d²T/dx²), SIGMA_GRAD updated to GROMACS-verified Δσ=4.8 mN/m, CAS corrected to 753-90-2 (TF-Ethylamine). All claims now match corrected simulation output.  
 **Citation:** Harris, N. "Suppression of Critical Heat Flux Failure via Solutal Marangoni Convection in Binary Dielectric Fluids." Genesis Platform Technical Whitepaper (2026).
+
+---
+
+## Changelog (v5.1 - 2026-02-09)
+
+### Parameter Consistency Fix
+- **`physics/marangoni_velocity.py`**: Fixed `SIGMA_GRAD` from 0.0002 to 0.00012 N/m·K
+- Aligns all example calculations with GROMACS-verified Δσ = 4.8 mN/m
+- Ensures validation scripts produce consistent results with private solver
+
+### Verification
+All `SIGMA_GRAD` / `d_sigma_dT` values in codebase now use 0.00012 N/m·K:
+- `MarangoniFluidProperties.d_sigma_dT` ✓
+- Docstring examples ✓  
+- Inline calculation comments ✓
+
