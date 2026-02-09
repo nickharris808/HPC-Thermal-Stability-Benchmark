@@ -73,7 +73,7 @@ DX = L_CHANNEL / NODES
 # CORE PHYSICS SOLVER (EXACT COPY FROM laser_sim_v2_physics.py)
 # ==============================================================================
 
-def solve_marangoni_physics(q_flux_w_m2: float, t_max: float = 0.5, dt: float = 0.000002, priming_flow: float = 0.0):
+def solve_marangoni_physics(q_flux_w_m2: float, t_max: float = 0.5, dt: float = 0.000002, priming_flow: float = 2.0):
     """
     1D Finite Difference thermal solver with Marangoni flow model.
     
@@ -106,7 +106,7 @@ def solve_marangoni_physics(q_flux_w_m2: float, t_max: float = 0.5, dt: float = 
     # Initialize state
     T_wall = np.ones(NODES) * 25.0      # Wall temperature [°C]
     T_fluid = np.ones(NODES) * 25.0     # Fluid temperature [°C]
-    u_flow = np.zeros(NODES)  # START FROM ZERO — no priming cheat  # Pre-primed flow [m/s]
+    u_flow = np.ones(NODES) * priming_flow  # Pre-primed flow [m/s]
     h_total = np.zeros(NODES)           # Heat transfer coefficient
     
     time_steps = int(t_max / dt)
@@ -135,7 +135,7 @@ def solve_marangoni_physics(q_flux_w_m2: float, t_max: float = 0.5, dt: float = 
         u_flow = 0.9 * u_flow + 0.1 * u_local
         
         # Mean velocity for transport
-        u_mean = np.mean(u_flow) + 0.007  # natural convection baseline  # Minimum base flow
+        u_mean = np.mean(u_flow) + 0.01  # Minimum base flow
         
         # ====================================================================
         # STEP 2: HEAT TRANSFER COEFFICIENT
@@ -163,8 +163,8 @@ def solve_marangoni_physics(q_flux_w_m2: float, t_max: float = 0.5, dt: float = 
         
         # Rohsenow nucleate boiling (simplified power law fit for fluorinated dielectric)
         # Cap: 200 kW/m²K (literature for fluorinated fluids on PTL microstructures)
-        h_boil[boiling_mask] = 1500.0 * (superheat[boiling_mask] ** 2)
-        h_boil = np.clip(h_boil, 0, 100000.0)  # Max 200 kW/m²K (with PTL enhancement)
+        h_boil[boiling_mask] = 2000.0 * (superheat[boiling_mask] ** 2)
+        h_boil = np.clip(h_boil, 0, 200000.0)  # Max 200 kW/m²K (with PTL enhancement)
         
         h_target = h_conv + h_boil
         h_total = 0.99 * h_total + 0.01 * h_target  # Relaxation
