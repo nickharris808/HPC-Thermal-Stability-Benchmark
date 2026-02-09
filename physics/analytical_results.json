@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Zuber CHF",
+    "value_W_cm2": 31.711215321446826,
+    "equation": "q = 0.131\u00b7h_fg\u00b7\u03c1_v^0.5\u00b7(\u03c3g(\u03c1_l-\u03c1_v))^0.25",
+    "source": "Zuber (1959)"
+  },
+  {
+    "name": "Marangoni Number",
+    "value": 2694333.333333333,
+    "threshold": 100,
+    "interpretation": "Ma >> 100 means surface tension dominates"
+  },
+  {
+    "name": "Bond Number",
+    "value": 0.18875983146067415,
+    "threshold": 1.0,
+    "interpretation": "Bo < 1 means surface tension > gravity"
+  }
+]
